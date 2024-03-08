@@ -1,0 +1,158 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+
+/*=============== BASE ===============*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background: #333;
+}
+
+h1 {
+    font-size: 80px;
+    text-align: center;
+    color: rgba(255, 255, 255, .5);
+    font-weight: 400;
+}
+
+.dr {
+    width: 800px;
+    border-radius: 10px;
+    margin: 0px auto;
+}
+
+.dr2 {
+    width: 800px;
+    border-radius: 10px;
+    margin: 0px auto;
+}
+
+.parallax-inner {
+    padding: 10% 0;
+}
+
+h2 {
+    font-size: 45px;
+    color: #f1f1f1;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: 20px 0 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #f1f1f1;
+    text-align: justify;
+    line-height: 30px;
+    margin: 0 50px 40px;
+}
+
+.parallax-1 {
+    background: url('../img/cc2.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.parallax-2 {
+    background: url('../img/cc2.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*=============== Buttons ===============*/
+.buttons_group {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Btn {
+    width: 140px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+    background-size: 250%;
+    background-position: left;
+    color: #ffd277;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: 1s;
+    overflow: hidden;
+}
+
+.Btn::before {
+    position: absolute;
+    content: "";
+    color: #ffd277;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 97%;
+    height: 90%;
+    border-radius: 8px;
+    transition-duration: 1s;
+    background-color: rgba(0, 0, 0, 0.842);
+    background-size: 200%;
+}
+
+.Btn:nth-child(1)::before {
+    content: "Results";
+}
+
+.Btn:nth-child(2)::before {
+    content: "Explain of demo-web";
+}
+
+.Btn:nth-child(3)::before {
+    content: "Class diagram";
+}
+
+.Btn:nth-child(4)::before {
+    content: "Springboot installation";
+}
+
+.Btn:nth-child(5)::before {
+    content: "Database diagram";
+}
+
+.Btn:nth-child(6)::before {
+    content: "Packages diagram";
+}
+
+.Btn:nth-child(7)::before {
+    content: "Creation Database";
+}
+
+.Btn:nth-child(8)::before {
+    content: "Database content";
+}
+
+.Btn:hover {
+    background-position: right;
+    transition-duration: 1s;
+}
+
+.Btn:hover::before {
+    background-position: right;
+    transition-duration: 1s;
+}
+
+.Btn:active {
+    transform: scale(0.95);
+}
