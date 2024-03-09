@@ -196,7 +196,8 @@ left join pedido on comercial.id=pedido.id_comercial
 left join cliente on cliente.id=pedido.id_cliente
 ORDER BY comercial.apellido1 asc,comercial.apellido2 asc, comercial.nombre asc;
 
---3.3) Devuelve un listado que solamente muestre los clientes que no han realizado ningún pedido.
+--3.3) Devuelve un listado que solamente muestre los clientes que no han
+--realizado ningún pedido.
 
 select DISTINCT
 cliente.*,
