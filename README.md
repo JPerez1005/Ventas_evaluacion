@@ -7,7 +7,7 @@
 select * from pedido
 ORDER BY fecha desc;
 ```
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 
 ### Devuelve todos los datos de los dos pedidos de mayor valor.
 ```sql
@@ -21,7 +21,7 @@ WHERE total IN (
 );
 ```
 
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 
 ### Devuelve un listado con los identificadores de los clientes que han realizado algún pedido. Tenga en cuenta que no debe mostrar identificadores que estén repetidos.
 ```sql
@@ -29,7 +29,7 @@ select distinct pedido.id_cliente
 as "Clientes que han hecho pedidos" 
 from pedido;
 ```
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 ### Devuelve un listado de todos los pedidos que se realizaron durante el año 2017, cuya cantidad total sea superior a 500€.
 ```sql
@@ -39,7 +39,7 @@ where pedido.fecha
 BETWEEN '2017-1-1' and '2017-12-31';
 ```
 
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 
 ### Devuelve un listado con el nombre y los apellidos de los comerciales que tienen una comisión entre 0.05 y 0.11.
 ```sql
@@ -49,14 +49,14 @@ where comisión BETWEEN '0.05' and '0.11'
 ORDER BY comisión asc;
 ```
 
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 
 ### Devuelve el valor de la comisión de mayor valor que existe en la tabla comercial.
 ```sql
 select max(comisión) as "comisión de mayor valor" from comercial;
 ```
 
-![alt text](image-6.png)
+![alt text](img/image-6.png)
 
 ### Devuelve el identificador, nombre y primer apellido de aquellos clientes cuyo segundo apellido no es NULL. El listado deberá estar ordenado alfabéticamente por apellidos y nombre.
 ```sql
@@ -65,7 +65,7 @@ from cliente
 WHERE apellido2 is not null;
 ```
 
-![alt text](image-7.png)
+![alt text](img/image-7.png)
 
 ### Devuelve un listado de los nombres de los clientes que empiezan por A y terminan por n y también los nombres que empiezan por P. El listado deberá estar ordenado alfabéticamente.
 ```sql
@@ -76,7 +76,7 @@ or nombre like 'P%'
 order by nombre asc;
 ```
 
-![alt text](image-8.png)
+![alt text](img/image-8.png)
 
 ### Devuelve un listado de los nombres de los clientes que no empiezan por A. El listado deberá estar ordenado alfabéticamente.
 ```sql
@@ -86,7 +86,7 @@ where nombre not like 'A%'
 order by nombre asc;
 ```
 
-![alt text](image-9.png)
+![alt text](img/image-9.png)
 
 ### Devuelve un listado con los nombres de los comerciales que terminan por el o o. Tenga en cuenta que se deberán eliminar los nombres repetidos.
 ```sql
@@ -95,7 +95,7 @@ from comercial
 where nombre like '%o';
 ```
 
-![alt text](image-10.png)
+![alt text](img/image-10.png)
 
 ## ( 2 ) CONSULTAS MULTITABLAS(COMPOSICIÓN INTERNA)
 
@@ -107,7 +107,7 @@ inner join pedido on cliente.id=pedido.id_cliente
 ORDER BY cliente.nombre asc;
 ```
 
-![alt text](image-11.png)
+![alt text](img/image-11.png)
 
 ### Devuelve un listado que muestre todos los pedidos que ha realizado cada cliente. El resultado debe mostrar todos los datos de los pedidos y del cliente. El listado debe mostrar los datos de los clientes ordenados alfabéticamente.
 ```sql
@@ -119,7 +119,7 @@ inner join pedido on cliente.id=pedido.id_cliente
 ORDER BY cliente.nombre asc;
 ```
 
-![alt text](image-12.png)
+![alt text](img/image-12.png)
 
 ### Devuelve un listado que muestre todos los pedidos en los que ha participado un comercial. El resultado debe mostrar todos los datos de los pedidos y de los comerciales. El listado debe mostrar los datos de los comerciales ordenados alfabéticamente.
 ```sql
@@ -130,7 +130,7 @@ inner join pedido on comercial.id=pedido.id_comercial
 ORDER BY comercial.nombre asc;
 ```
 
-![alt text](image-13.png)
+![alt text](img/image-13.png)
 
 ### Devuelve un listado que muestre todos los clientes, con todos los pedidos que han realizado y con los datos de los comerciales asociados a cada pedido.
 ```sql
@@ -142,7 +142,7 @@ inner join pedido on cliente.id=pedido.id_cliente
 inner join comercial on comercial.id=pedido.id_comercial;
 ```
 
-![alt text](image-14.png)
+![alt text](img/image-14.png)
 
 ### Devuelve un listado de todos los clientes que realizaron un pedido durante el año 2017, cuya cantidad esté entre 300 € y 1000 €.
 ```sql
@@ -158,7 +158,7 @@ and pedido.total
 BETWEEN 300 and 1000;
 ```
 
-![alt text](image-15.png)
+![alt text](img/image-15.png)
 
 ### Devuelve el nombre y los apellidos de todos los comerciales que ha participado en algún pedido realizado por María Santana Moreno.
 ```sql
@@ -173,7 +173,7 @@ and cliente.apellido1 ilike 'Santana'
 and cliente.apellido2 ilike 'Moreno'; 
 ```
 
-![alt text](image-16.png)
+![alt text](img/image-16.png)
 
 ### Devuelve el nombre de todos los clientes que han realizado algún pedido con el comercial Daniel Sáez Vega.
 ```sql
@@ -188,7 +188,7 @@ and comercial.apellido1 ilike 'sáez'
 and comercial.apellido2 ilike 'vega'; 
 ```
 
-![alt text](image-17.png)
+![alt text](img/image-17.png)
 
 ## ( 3 )CONSULTAS MULTITABLAS(COMPOSICIÓN EXTERNA)
 
@@ -203,7 +203,7 @@ left join comercial on comercial.id=pedido.id_comercial
 ORDER BY cliente.apellido1 asc,cliente.apellido2 asc, cliente.nombre asc;
 ```
 
-![alt text](image-18.png)
+![alt text](img/image-18.png)
 
 ### Devuelve un listado con todos los comerciales junto con los datos de los pedidos que han realizado. Este listado también debe incluir los comerciales que no han realizado ningún pedido. El listado debe estar ordenado alfabéticamente por el primer apellido, segundo apellido y nombre de los comerciales.
 ```sql
@@ -216,7 +216,7 @@ left join cliente on cliente.id=pedido.id_cliente
 ORDER BY comercial.apellido1 asc,comercial.apellido2 asc, comercial.nombre asc;
 ```
 
-![alt text](image-19.png)
+![alt text](img/image-19.png)
 
 ### Devuelve un listado que solamente muestre los clientes que no han realizado ningún pedido.
 ```sql
@@ -228,7 +228,7 @@ left join pedido on cliente.id=pedido.id_cliente
 where pedido.id_cliente is null;
 ```
 
-![alt text](image-20.png)
+![alt text](img/image-20.png)
 
 ### Devuelve un listado que solamente muestre los comerciales que no han realizado ningún pedido.
 ```sql
@@ -242,7 +242,7 @@ LEFT JOIN pedido on comercial.id=pedido.id_comercial
 where pedido.id is null;
 ```
 
-![alt text](image-21.png)
+![alt text](img/image-21.png)
 
 ### Devuelve un listado con los clientes que no han realizado ningún pedido y de los comerciales que no han participado en ningún pedido. Ordene el listado alfabéticamente por los apellidos y el nombre. En en listado deberá diferenciar de algún modo los clientes y los comerciales.
 ```sql
@@ -265,7 +265,7 @@ order by comercial.nombre,comercial.apellido1,comercial.apellido2,
 cliente.nombre,cliente.apellido1,cliente.apellido2 asc;
 ```
 
-![alt text](image-22.png)
+![alt text](img/image-22.png)
 
 ### ¿Se podrían realizar las consultas anteriores con NATURAL LEFT JOIN o NATURAL RIGHT JOIN? Justifique su respuesta.
 ```sql
@@ -280,7 +280,7 @@ select round(sum(pedido.total)) as "cantidad total de pedidos"
 from pedido;
 ```
 
-![alt text](image-23.png)
+![alt text](img/image-23.png)
 
 ### Calcula la cantidad media de todos los pedidos que aparecen en la tabla pedido.
 ```sql
@@ -288,7 +288,7 @@ select round(avg(pedido.total))
 from pedido;
 ```
 
-![alt text](image-24.png)
+![alt text](img/image-24.png)
 
 ### Calcula el número total de comerciales distintos que aparecen en la tabla pedido.
 ```sql
@@ -296,28 +296,28 @@ SELECT COUNT(DISTINCT pedido.id_comercial)
 FROM pedido;
 ```
 
-![alt text](image-25.png)
+![alt text](img/image-25.png)
 
 ### Calcula el número total de clientes que aparecen en la tabla cliente.
 ```sql
 select count(id) from cliente;
 ```
 
-![alt text](image-26.png)
+![alt text](img/image-26.png)
 
 ### Calcula cuál es la mayor cantidad que aparece en la tabla pedido.
 ```sql
 select max(total) from pedido;
 ```
 
-![alt text](image-27.png)
+![alt text](img/image-27.png)
 
 ### Calcula cuál es la menor cantidad que aparece en la tabla pedido.
 ```sql
 select min(total) from pedido;
 ```
 
-![alt text](image-28.png)
+![alt text](img/image-28.png)
 
 ### Calcula cuál es el valor máximo de categoría para cada una de las ciudades que aparece en la tabla cliente.
 ```sql
@@ -326,7 +326,7 @@ max(cliente.categoría) from cliente
 group by cliente.ciudad;
 ```
 
-![alt text](image-29.png)
+![alt text](img/image-29.png)
 
 ### Calcula cuál es el máximo valor de los pedidos realizados durante el mismo día para cada uno de los clientes. Es decir, el mismo cliente puede haber realizado varios pedidos de diferentes cantidades el mismo día. Se pide que se calcule cuál es el pedido de máximo valor para cada uno de los días en los que un cliente ha realizado un pedido. Muestra el identificador del cliente, nombre, apellidos, la fecha y el valor de la cantidad.
 ```sql
@@ -338,7 +338,7 @@ group by pedido.fecha,cliente.id
 order by cliente.nombre asc;
 ```
 
-![alt text](image-30.png)
+![alt text](img/image-30.png)
 
 ### Calcula cuál es el máximo valor de los pedidos realizados durante el mismo día para cada uno de los clientes, teniendo en cuenta que sólo queremos mostrar aquellos pedidos que superen la cantidad de 2000 €.
 ```sql
@@ -349,7 +349,7 @@ group by pedido.fecha,cliente.id
 HAVING max(pedido.total)>2000;
 ```
 
-![alt text](image-31.png)
+![alt text](img/image-31.png)
 
 ### Calcula el máximo valor de los pedidos realizados para cada uno de los comerciales durante la fecha 2016-08-17. Muestra el identificador del comercial, nombre, apellidos y total.
 ```sql
@@ -363,7 +363,7 @@ GROUP BY comercial.id, comercial.nombre, comercial.apellido1,
 comercial.apellido2;
 ```
 
-![alt text](image-32.png)
+![alt text](img/image-32.png)
 
 ### Devuelve un listado con el identificador de cliente, nombre y apellidos y el número total de pedidos que ha realizado cada uno de clientes. Tenga en cuenta que pueden existir clientes que no han realizado ningún pedido. Estos clientes también deben aparecer en el listado indicando que el número de pedidos realizados es 0.
 ```sql
@@ -374,7 +374,7 @@ LEFT JOIN pedido ON cliente.id = pedido.id_cliente
 GROUP BY cliente.id, cliente.nombre, cliente.apellido1, cliente.apellido2;
 ```
 
-![alt text](image-33.png)
+![alt text](img/image-33.png)
 
 ### Devuelve un listado con el identificador de cliente, nombre y apellidos y el número total de pedidos que ha realizado cada uno de clientes durante el año 2017.
 ```sql
@@ -388,7 +388,7 @@ GROUP BY cliente.id, cliente.nombre, cliente.apellido1, cliente.apellido2
 ,pedido.fecha;
 ```
 
-![alt text](image-34.png)
+![alt text](img/image-34.png)
 
 ### Devuelve un listado que muestre el identificador de cliente, nombre, primer apellido y el valor de la máxima cantidad del pedido realizado por cada uno de los clientes. El resultado debe mostrar aquellos clientes que no han realizado ningún pedido indicando que la máxima cantidad de sus pedidos realizados es 0. Puede hacer uso de la función IFNULL.
 ```sql
@@ -407,7 +407,7 @@ GROUP BY
     cliente.apellido1;
 ```
 
-![alt text](image-35.png)
+![alt text](img/image-35.png)
 
 ### Devuelve cuál ha sido el pedido de máximo valor que se ha realizado cada año.
 ```sql
@@ -419,7 +419,7 @@ FROM pedido
 ORDER BY EXTRACT(YEAR FROM fecha), total DESC;
 ```
 
-![alt text](image-36.png)
+![alt text](img/image-36.png)
 
 ### Devuelve el número total de pedidos que se han realizado cada año.
 ```sql
@@ -432,7 +432,7 @@ GROUP BY
     EXTRACT(YEAR FROM pedido.fecha);
 ```
 
-![alt text](image-37.png)
+![alt text](img/image-37.png)
 
 ## ( 5 ) CON OPERADORES BASICOS DE COMPARACIÓN
 
@@ -444,7 +444,7 @@ where pedido.id_cliente=(
     where nombre='Adela');
 ```
 
-![alt text](image-38.png)
+![alt text](img/image-38.png)
 
 ### Devuelve el número de pedidos en los que ha participado el comercial Daniel Sáez Vega. (Sin utilizar INNER JOIN).
 ```sql
@@ -455,7 +455,7 @@ where pedido.id_comercial=(
 );
 ```
 
-![alt text](image-39.png)
+![alt text](img/image-39.png)
 
 ### Devuelve los datos del cliente que realizó el pedido más caro en el año 2019. (Sin utilizar INNER JOIN)
 ```sql
@@ -470,7 +470,7 @@ WHERE cliente.id = (
 );
 ```
 
-![alt text](image-40.png)
+![alt text](img/image-40.png)
 
 ### Devuelve la fecha y la cantidad del pedido de menor valor realizado por el cliente Pepe Ruiz Santana.
 ```sql
@@ -485,7 +485,7 @@ limit 1
 ;
 ```
 
-![alt text](image-41.png)
+![alt text](img/image-41.png)
 
 ### Devuelve un listado con los datos de los clientes y los pedidos, de todos los clientes que han realizado un pedido durante el año 2017 con un valor mayor o igual al valor medio de los pedidos realizados durante ese mismo año.
 ```sql
@@ -499,7 +499,7 @@ and pedido.total>=(SELECT AVG(p.total)
     WHERE EXTRACT(YEAR FROM p.fecha) = '2017');
 ```
 
-![alt text](image-42.png)
+![alt text](img/image-42.png)
 
 ## ( 6 ) SUBCONSULTAS CON ALL Y ANY
 
@@ -514,7 +514,7 @@ WHERE total >= ALL (
 );
 ```
 
-![alt text](image-43.png)
+![alt text](img/image-43.png)
 
 ### Devuelve un listado de los clientes que no han realizado ningún pedido. (Utilizando ANY o ALL).
 ```sql
@@ -534,7 +534,7 @@ WHERE id NOT IN (
 );
 ```
 
-![alt text](image-44.png)
+![alt text](img/image-44.png)
 
 ### Devuelve un listado de los comerciales que no han realizado ningún pedido. (Utilizando ANY o ALL).
 ```sql
@@ -546,7 +546,7 @@ where c.id <> all(
 );
 ```
 
-![alt text](image-45.png)
+![alt text](img/image-45.png)
 
 ## ( 7 ) SUBCONSULTAS CON IN Y NOT IN
 
@@ -558,7 +558,7 @@ where id not in(
 );
 ```
 
-![alt text](image-46.png)
+![alt text](img/image-46.png)
 
 ### Devuelve un listado de los comerciales que no han realizado ningún pedido. (Utilizando IN o NOT IN).
 ```sql
@@ -568,7 +568,7 @@ where id not in(
 );
 ```
 
-![alt text](image-47.png)
+![alt text](img/image-47.png)
 
 ## ( 8 ) SUBCONSULTAS CON EXISTS Y NOT EXISTS
 
@@ -583,7 +583,7 @@ WHERE NOT EXISTS (
 );
 ```
 
-![alt text](image-48.png)
+![alt text](img/image-48.png)
 
 ### Devuelve un listado de los comerciales que no han realizado ningún pedido. (Utilizando EXISTS o NOT EXISTS).
 ```sql
@@ -596,4 +596,4 @@ WHERE NOT EXISTS (
 );
 ```
 
-![alt text](image-49.png)
+![alt text](img/image-49.png)
